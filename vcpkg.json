@@ -14,8 +14,8 @@
     "registries": [
       {
         "kind": "git",
-        "repository": "https://github.com/ModOrganizer2/vcpkg-registry",
-        "baseline": "8beb2e0efa9c17dd6d17bb05288dd1e40727f673",
+        "repository": "https://github.com/Kaedras/vcpkg-registry",
+        "baseline": "dfe09fb10f1e1ca53edead3f7e4e83c04261b099",
         "packages": ["mo2-*"]
       }
     ]
