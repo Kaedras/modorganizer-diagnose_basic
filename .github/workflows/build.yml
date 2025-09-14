@@ -11,10 +11,15 @@ env:
 
 jobs:
   build:
-    runs-on: windows-2022
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ windows-2022, ubuntu-24.04 ]
+
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Build Diagnose Basic
         id: build-diagnose-basic
-        uses: ModOrganizer2/build-with-mob-action@master
+        uses: Kaedras/build-with-mob-action@master
         with:
           mo2-dependencies: uibase
