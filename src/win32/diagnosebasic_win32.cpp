@@ -17,36 +17,13 @@
  * along with this plugin.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "diagnosebasic.h"
-
-#include <uibase/ifiletree.h>
-#include <uibase/imodinterface.h>
-#include <uibase/imodlist.h>
-#include <uibase/iplugingame.h>
-#include <uibase/ipluginlist.h>
-#include <uibase/report.h>
-#include <uibase/utility.h>
-
-#include <QCoreApplication>
-#include <QDateTime>
 #include <QDebug>
-#include <QDir>
-#include <QDirIterator>
-#include <QFile>
 #include <QLabel>
-#include <QMessageBox>
-#include <QProgressDialog>
-#include <QPushButton>
-#include <QtPlugin>
+#include <QString>
 
-#include <algorithm>
-#include <functional>
-#include <regex>
-#include <vector>
+#include <Windows.h>
 
-using namespace MOBase;
-
-static bool checkFileAttributes(const QString& path)
+bool checkFileAttributes(const QString& path)
 {
   WCHAR w_path[32767];
   memset(w_path, 0, sizeof(w_path));
@@ -89,7 +66,7 @@ static bool checkFileAttributes(const QString& path)
   return false;
 }
 
-static bool fixFileAttributes(const QString& path)
+bool fixFileAttributes(const QString& path)
 {
   bool success = true;
 
