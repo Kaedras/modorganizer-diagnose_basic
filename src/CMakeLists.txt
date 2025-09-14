@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
 
+if(LINUX)
+    find_package(OpenGL REQUIRED)
+endif()
+
 find_package(mo2-cmake CONFIG REQUIRED)
 find_package(mo2-uibase CONFIG REQUIRED)
 
