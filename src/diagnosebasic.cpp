@@ -292,7 +292,7 @@ bool DiagnoseBasic::missingMasters() const
   for (const QString& esp : esps) {
     QString baseName = QFileInfo(esp).fileName();
     if (m_MOInfo->pluginList()->state(baseName) == IPluginList::STATE_ACTIVE) {
-      for (const QString master : m_MOInfo->pluginList()->masters(baseName)) {
+      for (const QString& master : m_MOInfo->pluginList()->masters(baseName)) {
         if (enabledPlugins.find(master.toLower()) == enabledPlugins.end()) {
           m_MissingMasters.insert(master);
           m_PluginChildren[master].insert(baseName);
@@ -306,7 +306,7 @@ bool DiagnoseBasic::missingMasters() const
 bool DiagnoseBasic::alternateGame() const
 {
   QStringList mods = m_MOInfo->modList()->allMods();
-  for (QString mod : mods) {
+  for (const QString& mod : mods) {
     if (m_MOInfo->modList()->state(mod) & MOBase::IModList::STATE_ALTERNATE &&
         m_MOInfo->modList()->state(mod) & MOBase::IModList::STATE_ACTIVE)
       return true;
