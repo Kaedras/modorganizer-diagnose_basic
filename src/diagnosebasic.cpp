@@ -158,19 +158,19 @@ bool DiagnoseBasic::errorReported() const
       char buffer[1024];
       int line = 0;
       qint64 lineLengths[NUM_CONTEXT_ROWS];
-      for (int i = 0; i < NUM_CONTEXT_ROWS; ++i) {
+      for (unsigned int i = 0; i < NUM_CONTEXT_ROWS; ++i) {
         lineLengths[i] = 0;
       }
       while (!file.atEnd()) {
         lineLengths[line % NUM_CONTEXT_ROWS] = file.readLine(buffer, 1024) + 1;
         if (strncmp(buffer, "ERROR", 5) == 0) {
           qint64 sumChars = 0;
-          for (int i = 0; i < NUM_CONTEXT_ROWS; ++i) {
+          for (unsigned int i = 0; i < NUM_CONTEXT_ROWS; ++i) {
             sumChars += lineLengths[i];
           }
           file.seek(file.pos() - sumChars);
           m_ErrorMessage = "";
-          for (int i = 0; i < 2 * NUM_CONTEXT_ROWS; ++i) {
+          for (unsigned int i = 0; i < 2 * NUM_CONTEXT_ROWS; ++i) {
             file.readLine(buffer, 1024);
             QString lineString = QString::fromUtf8(buffer);
             if (lineString.startsWith("ERROR")) {
