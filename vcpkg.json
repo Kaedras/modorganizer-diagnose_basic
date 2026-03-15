@@ -15,7 +15,7 @@
       {
         "kind": "git",
         "repository": "https://github.com/Kaedras/vcpkg-registry",
-        "baseline": "386e3fb7463f30e6d26c4cba8b411775267d5d08",
+        "baseline": "ec3b95c5dca44c7a5058d168e6e368722cc76de8",
         "packages": ["mo2-*"]
       }
     ]
